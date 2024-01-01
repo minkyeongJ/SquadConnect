@@ -1,0 +1,19 @@
+.name-tag {
+  display: flex;
+  column-gap: 3px;
+  padding: 3px 10px;
+  border: 1px solid lightslategrey;
+  border-radius: 20px;
+  background-color: rgb(245, 249, 253);
+}
+
+.name-tag:hover {
+  background-color: #5470ff;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-text {
+  line-height: 130%;
+  font-weight: bold;
+}
