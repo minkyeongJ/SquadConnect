@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import connectIcon from "../../assets/connect-icon.png";
 import "./Home.css";
 import NameTag from "../atom/NameTag";
@@ -11,6 +11,7 @@ const teamMemberList = {
 const Home = () => {
   const [matchMemberList, setMatchMemberList] = useState<string[]>([]);
   const [teamMembers, setTeamMembers] = useState(teamMemberList);
+  const inputName = useRef<HTMLInputElement | null>(null);
 
   // 매칭 함수
   const matchNames = () => {
@@ -43,12 +44,17 @@ const Home = () => {
     }
   };
 
+  const enterMember = () => {
+    const name = inputName.current?.value;
+    name && setTeamMembers((state) => ({ ...state, js: [...state.js, name] }));
+    inputName.current && (inputName.current.value = "");
+  };
+
   const deleteMember = (e: React.MouseEvent) => {
     const target = e.target as HTMLDivElement;
     const name = target.innerText;
     const filteredMember = teamMembers.js.filter((member) => member !== name);
     setTeamMembers((state) => ({ ...state, js: filteredMember }));
-    console.log(name);
   };
 
   return (
@@ -62,6 +68,11 @@ const Home = () => {
         </a>
       </div>
       <h1>Where Is Your Pair?</h1>
+      <div className="member-enter">
+        <p>멤버 등록:</p>
+        <input type="text" ref={(el) => (inputName.current = el)} />
+        <button onClick={enterMember}>추가하기</button>
+      </div>
       <div className="member-contents">
         <div className="member-intro">
           {teamMembers.js.map((member: string) => (

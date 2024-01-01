@@ -1,3 +1,20 @@
+.member-enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.member-enter p {
+  font-size: large;
+}
+
+.member-enter input {
+  flex-grow: 1;
+  height: 30px;
+  font-size: large;
+  padding: 0 5px;
+}
+
 .member-intro {
   display: flex;
   justify-content: center;
