@@ -1,13 +1,16 @@
 import { useState } from "react";
 import connectIcon from "../../assets/connect-icon.png";
 import "./Home.css";
+import NameTag from "../atom/NameTag";
+
+const teamMemberList = {
+  js: ["강수암", "우승미", "이수아", "전서희", "조민경"],
+  java: ["최소영"],
+};
 
 const Home = () => {
   const [matchMemberList, setMatchMemberList] = useState<string[]>([]);
-  const teamMembers = {
-    js: ["강수암", "우승미", "이수아", "이현걸", "전서희", "조민경"],
-    java: ["최소영"],
-  };
+  const [teamMembers, setTeamMembers] = useState(teamMemberList);
 
   // 매칭 함수
   const matchNames = () => {
@@ -34,10 +37,18 @@ const Home = () => {
       } else {
         setMatchMemberList((state: string[]) => [
           ...state,
-          `${shuffledNames[i]}}`,
+          `${shuffledNames[i]}`,
         ]);
       }
     }
+  };
+
+  const deleteMember = (e: React.MouseEvent) => {
+    const target = e.target as HTMLDivElement;
+    const name = target.innerText;
+    const filteredMember = teamMembers.js.filter((member) => member !== name);
+    setTeamMembers((state) => ({ ...state, js: filteredMember }));
+    console.log(name);
   };
 
   return (
@@ -53,8 +64,15 @@ const Home = () => {
       <h1>Where Is Your Pair?</h1>
       <div className="member-contents">
         <div className="member-intro">
-          팀 멤버:{" "}
-          {teamMembers.js.join(", ") + ", " + teamMembers.java.join(", ")}
+          {teamMembers.js.map((member: string) => (
+            <NameTag key={member} name={member} handleClick={deleteMember} />
+          ))}
+
+          <NameTag
+            name={teamMembers.java[0]}
+            handleClick={deleteMember}
+            readonly={true}
+          />
         </div>
         <div className="member-btn-area">
           <button className="click-btn" onClick={matchNames}>

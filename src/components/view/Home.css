@@ -1,4 +1,7 @@
 .member-intro {
+  display: flex;
+  justify-content: center;
+  column-gap: 4px;
   font-size: medium;
   background-color: #f0f8ff;
   border-radius: 10px;
