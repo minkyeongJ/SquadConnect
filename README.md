@@ -10,4 +10,7 @@ Deploy: Vercel
 
 # How to use
 
-click 버튼을 눌러 팀을 매칭할 수 있습니다.
+- click 버튼을 눌러 팀을 매칭할 수 있습니다.
+
+![SquadConnect](https://github.com/minkyeongJ/SquadConnect/assets/67677374/1469ddae-7fb5-4d37-bb50-6e8118584c4b)
+
