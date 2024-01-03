@@ -15,6 +15,12 @@
   padding: 0 5px;
 }
 
+.member-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 .member-intro {
   display: flex;
   justify-content: center;
@@ -23,12 +29,6 @@
   background-color: #f0f8ff;
   border-radius: 10px;
   padding: 5px;
-}
-
-.member-contents {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
 }
 
 /* 리스트 스타일 */
@@ -105,4 +105,10 @@
 
 .click-btn span:nth-child(4) {
   --n: 4;
+}
+
+@media (prefers-color-scheme: dark) {
+  .member-intro {
+    background-color: #6495ed;
+  }
 }

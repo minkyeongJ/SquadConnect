@@ -14,3 +14,7 @@ Deploy: Vercel
 
 ![SquadConnect](https://github.com/minkyeongJ/SquadConnect/assets/67677374/1469ddae-7fb5-4d37-bb50-6e8118584c4b)
 
+# Theme
+
+- prefers-color-scheme
+  [MDN: prefers-color-scheme](https://developer.mozilla.org/ko/docs/Web/CSS/@media/prefers-color-scheme)

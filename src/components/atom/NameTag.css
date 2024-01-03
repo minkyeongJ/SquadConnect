@@ -5,6 +5,7 @@
   border: 1px solid lightslategrey;
   border-radius: 20px;
   background-color: rgb(245, 249, 253);
+  flex-basis: fit-content;
 }
 
 .name-tag:hover {
@@ -16,4 +17,14 @@
 .delete-text {
   line-height: 130%;
   font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark) {
+  .name-tag {
+    background-color: darkblue;
+    border: 1px solid black;
+  }
+  .name-tag:hover {
+    border: 1px solid #5470ff;
+  }
 }
